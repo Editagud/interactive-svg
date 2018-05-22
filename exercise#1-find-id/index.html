@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <title>Document</title>
+</head>
+
+<body>
+    
+<div id="graphic"></div>
+<div id="place"></div>
+
+</body>
+</html>
+
+
+<script>
+    let json;
+    document.addEventListener("DOMContentLoaded", loadSvg);
+async function loadSvg() {
+   
+    let mySvg = await fetch("layers.svg");
+    let svg = await mySvg.text();
+    let myJson = await fetch("poop.json");
+    json = await myJson.json();
+    console.log(json)
+
+    document.querySelector("#graphic").innerHTML = svg;
+     }
+     //const mac = document.querySelector("#mac");
+    // const phone = document.querySelector("#phone");
+     //const bike = document.querySelector("#bike");
+
+  
+document.querySelector("#graphic").addEventListener("click", showText);
+   function showText(){
+ console.log(event.target.id);
+   let id = event.target.id;
+   json.forEach(element => {
+       if (id==element.id){
+           console.log(element.text)
+           document.querySelector("#place").innerHTML = element.text;
+       } 
+   })
+   }
+    </script>

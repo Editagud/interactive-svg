@@ -1,0 +1,14 @@
+ [
+    {
+        "id": "bike",
+        "text": "Ride the bike!"
+    },
+    {
+        "id": "mac",
+        "text": "explore me!"
+    },
+    {
+        "id": "phone",
+        "text": "Call to you mom!"
+    }
+] 
