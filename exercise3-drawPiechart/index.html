@@ -18,6 +18,7 @@
         fill: none;
         stroke: rgb(202, 92, 111);
         stroke-width: 100;
+        stroke-dasharray: 0 314;
         
         
     }
@@ -25,13 +26,15 @@
         fill: none;
         stroke: rgb(170, 137, 30);
         stroke-width: 100;
-        stroke-dashoffset: -60;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0 314;
     }
     #c3{
         fill: none;
         stroke:tomato;
         stroke-width: 100;
-        stroke-dashoffset: 200;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0 314;
     }
     svg{
         background: rgb(67, 68, 68);
@@ -69,6 +72,8 @@ console.log(myJson);
                 c1.style.strokeDasharray = "60 314";
                 c2.style.strokeDasharray = "160 314";
                 c3.style.strokeDasharray = "100 314";
+                c2.style.strokeDashoffset = "-60";
+                c3.style.strokeDashoffset = "-220";
                 id = event.target.id;
                
 
@@ -84,6 +89,8 @@ console.log(myJson);
                 c1.style.strokeDasharray = "0 314";
                 c2.style.strokeDasharray = "0 314";
                 c3.style.strokeDasharray = "0 314";
+                
+
             }
           
             aanimate();
