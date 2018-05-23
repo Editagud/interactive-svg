@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #circle{
+        width: 50%;
+        
+
+    }
+    circle{
+        transition: all 2s ease;
+    }
+    #c1{
+        fill: none;
+        stroke: rgb(202, 92, 111);
+        stroke-width: 100;
+        
+        
+    }
+    #c2{
+        fill: none;
+        stroke: rgb(170, 137, 30);
+        stroke-width: 100;
+        stroke-dashoffset: -60;
+    }
+    #c3{
+        fill: none;
+        stroke:tomato;
+        stroke-width: 100;
+        stroke-dashoffset: 200;
+    }
+    svg{
+        background: rgb(67, 68, 68);
+        transform: rotate(-90deg);
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    
+    <div id="circle">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle id="c1" cx="50" cy="50" r="50" />
+            <circle id="c2" cx="50" cy="50" r="50" />
+            <circle id="c3" cx="50" cy="50" r="50" />
+          </svg>
+        </div>
+        <div id="text"></div>
+        
+        <script> 
+        document.addEventListener("DOMContentLoaded",getData);
+        async function getData() {
+            const jsonData = await fetch("data.json");
+myJson = await jsonData.json();
+console.log(myJson);
+        }
+        const c1 = document.querySelector("#c1");
+        const c2 = document.querySelector("#c2");
+        const c3 = document.querySelector("#c3");
+       let id;
+       let myJson;
+
+        document.querySelector("svg").addEventListener("mouseover", animate);
+            function animate() {
+                c1.style.strokeDasharray = "60 314";
+                c2.style.strokeDasharray = "160 314";
+                c3.style.strokeDasharray = "100 314";
+                id = event.target.id;
+               
+
+                myJson.forEach(data=>{
+      //see if there is a mach
+      if(data.id== id){ 
+          document.querySelector("#text").textContent = data.number +"%";
+      }
+    })
+            }
+        document.querySelector("svg").addEventListener("mouseout", aanimate);
+            function aanimate() {
+                c1.style.strokeDasharray = "0 314";
+                c2.style.strokeDasharray = "0 314";
+                c3.style.strokeDasharray = "0 314";
+            }
+          
+            aanimate();
+            </script>
+</body>
+</html>
