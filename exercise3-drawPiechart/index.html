@@ -92,6 +92,11 @@ console.log(myJson);
                 
 
             }
+            document.querySelector("svg").addEventListener("mouseout", killit);
+            function killit(){
+                document.querySelector("#text").textContent = "";
+            }
+
           
             aanimate();
             </script>
